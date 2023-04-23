@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.smband.ws.client.gw.CountryClient;
+import com.smband.ws.client.gw.CountryClient2;
 import com.smband.ws.client.wsdl.GetCountryResponse;
 
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +20,7 @@ public class SmbConsumWsMavenApplication {
 	}
 
 	@Bean
-	CommandLineRunner lookup(CountryClient quoteClient) {
+	CommandLineRunner lookup(CountryClient quoteClient, CountryClient2 client2) {
 		return args -> {
 			String country = "Spain";
 
@@ -29,6 +30,9 @@ public class SmbConsumWsMavenApplication {
 			GetCountryResponse response = quoteClient.getCountry(country);
 			log.info("response: {}", response.getCountry());
 			//System.err.println(response.getCountry().getCurrency());
+			
+			//response = client2.getCountry(country);
+			//log.info("response: {}", response.getCountry());
 		};
 	}
 }

@@ -1,14 +1,10 @@
-//
-// 이 파일은 JAXB(JavaTM Architecture for XML Binding) 참조 구현 2.2.11 버전을 통해 생성되었습니다. 
-// <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a>를 참조하십시오. 
-// 이 파일을 수정하면 소스 스키마를 재컴파일할 때 수정 사항이 손실됩니다. 
-// 생성 날짜: 2023.04.10 시간 07:58:21 PM KST 
-//
-
 
 package com.smband.ws.client.wsdl;
 
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
+import javax.xml.namespace.QName;
 
 
 /**
@@ -28,12 +24,21 @@ import javax.xml.bind.annotation.XmlRegistry;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _CommonHeader_QNAME = new QName("http://www.smband.com/countries", "commonHeader");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.smband.ws.client.wsdl
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link CommonHeader }
+     * 
+     */
+    public CommonHeader createCommonHeader() {
+        return new CommonHeader();
     }
 
     /**
@@ -58,6 +63,15 @@ public class ObjectFactory {
      */
     public Country createCountry() {
         return new Country();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CommonHeader }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.smband.com/countries", name = "commonHeader")
+    public JAXBElement<CommonHeader> createCommonHeader(CommonHeader value) {
+        return new JAXBElement<CommonHeader>(_CommonHeader_QNAME, CommonHeader.class, null, value);
     }
 
 }
